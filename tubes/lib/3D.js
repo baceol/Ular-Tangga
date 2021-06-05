@@ -6,28 +6,65 @@ let clicked = false;
 
 cam.position.z = 5;
 
-const dice_material1 = [
-    new THREE.MeshPhongMaterial({color: 0xff0000}),
-    new THREE.MeshPhongMaterial({color: 0xf0f000}),
-    new THREE.MeshPhongMaterial({color: 0x00ff00}),
-    new THREE.MeshPhongMaterial({color: 0x00f0f0}),
-    new THREE.MeshPhongMaterial({color: 0x0000ff}),
-    new THREE.MeshPhongMaterial({color: 0xf000f0})
+const alef = new THREE.TextureLoader().load('texture/one.jpeg');
+const bet = new THREE.TextureLoader().load('texture/two.jpeg');
+const gimel = new THREE.TextureLoader().load('texture/three.jpeg');
+const dalet = new THREE.TextureLoader().load('texture/four.jpeg');
+const he = new THREE.TextureLoader().load('texture/five.jpeg');
+const vav = new THREE.TextureLoader().load('texture/six.jpeg');
+const die_material1 = [
+    new THREE.MeshBasicMaterial({map: dalet}), //right
+    new THREE.MeshBasicMaterial({map: gimel}), //left
+    new THREE.MeshBasicMaterial({map: he}), //top
+    new THREE.MeshBasicMaterial({map: bet}), //bottom
+    new THREE.MeshBasicMaterial({map: alef}), //front
+    new THREE.MeshBasicMaterial({map: vav}) //back
+];
+const die_material2 = [
+    new THREE.MeshBasicMaterial({map: dalet}), //right
+    new THREE.MeshBasicMaterial({map: gimel}), //left
+    new THREE.MeshBasicMaterial({map: alef}), //top
+    new THREE.MeshBasicMaterial({map: vav}), //bottom
+    new THREE.MeshBasicMaterial({map: bet}), //front
+    new THREE.MeshBasicMaterial({map: he}) //back
+];
+const die_material3 = [
+    new THREE.MeshBasicMaterial({map: bet}), //right
+    new THREE.MeshBasicMaterial({map: he}), //left
+    new THREE.MeshBasicMaterial({map: alef}), //top
+    new THREE.MeshBasicMaterial({map: vav}), //bottom
+    new THREE.MeshBasicMaterial({map: gimel}), //front
+    new THREE.MeshBasicMaterial({map: dalet}) //back
+];
+const die_material4 = [
+    new THREE.MeshBasicMaterial({map: he}), //right
+    new THREE.MeshBasicMaterial({map: bet}), //left
+    new THREE.MeshBasicMaterial({map: alef}), //top
+    new THREE.MeshBasicMaterial({map: vav}), //bottom
+    new THREE.MeshBasicMaterial({map: dalet}), //front
+    new THREE.MeshBasicMaterial({map: gimel}) //back
+];
+const die_material5 = [
+    new THREE.MeshBasicMaterial({map: gimel}), //right
+    new THREE.MeshBasicMaterial({map: dalet}), //left
+    new THREE.MeshBasicMaterial({map: alef}), //top
+    new THREE.MeshBasicMaterial({map: vav}), //bottom
+    new THREE.MeshBasicMaterial({map: he}), //front
+    new THREE.MeshBasicMaterial({map: bet}) //back
+];
+const die_material6 = [
+    new THREE.MeshBasicMaterial({map: gimel}), //right
+    new THREE.MeshBasicMaterial({map: dalet}), //left
+    new THREE.MeshBasicMaterial({map: he}), //top
+    new THREE.MeshBasicMaterial({map: bet}), //bottom
+    new THREE.MeshBasicMaterial({map: vav}), //front
+    new THREE.MeshBasicMaterial({map: alef}) //back
 ];
 
-const dice_material2 = [
-    new THREE.MeshPhongMaterial({color: 0xaa0000}),
-    new THREE.MeshPhongMaterial({color: 0x00bb00}),
-    new THREE.MeshPhongMaterial({color: 0x0000cc}),
-    new THREE.MeshPhongMaterial({color: 0xdd0000}),
-    new THREE.MeshPhongMaterial({color: 0x00ee00}),
-    new THREE.MeshPhongMaterial({color: 0x0000ff})
-];
-
-const dice_geometry = new THREE.BoxGeometry(1, 1, 1);
-let dice_mesh = new THREE.Mesh(dice_geometry, dice_material1);
-dice_mesh.position.set(0, 1, 0);
-scene.add(dice_mesh);
+const die_geometry = new THREE.BoxGeometry(1, 1, 1);
+let die_mesh = new THREE.Mesh(die_geometry, die_material1);
+die_mesh.position.set(0, 1, 0);
+scene.add(die_mesh);
 
 let light1 = new THREE.SpotLight(0xffffff, 1);
 light1.position.set(0, 3, 2);
@@ -37,6 +74,8 @@ let light2 = new THREE.SpotLight(0xffffff, 1);
 light2.position.set(0, -3, 2);
 scene.add(light2);
 
+let controls = new THREE.OrbitControls(cam, renderer.domElement);
+
 window.addEventListener('resize', function() {
     renderer.setSize(this.window.innerWidth, this.window.innerHeight);
     cam.aspect = this.window.innerWidth/this.window.innerHeight;
@@ -44,23 +83,44 @@ window.addEventListener('resize', function() {
 });
 
 document.querySelector('#button').addEventListener('click', function () {
+    const number = Math.floor(Math.random() * 5) + 1;
     clicked = true;
-    dice_mesh.traverse(function (child) {
+    die_mesh.traverse(function (child) {
        if (child instanceof THREE.Mesh) {
-           child.material = dice_material2;
+           switch (number) {
+               case 1 :
+                   child.material = die_material1;
+                   break;
+               case 2 :
+                   child.material = die_material2;
+                   break;
+               case 3 :
+                   child.material = die_material3;
+                   break;
+               case 4 :
+                   child.material = die_material4;
+                   break;
+               case 5 :
+                   child.material = die_material5;
+                   break;
+               case 6 :
+                   child.material = die_material6;
+                   break;
+           }
        }
-       dice_mesh.needsUpdate = true;
+       die_mesh.needsUpdate = true;
     });
 });
 
 function animate() {
+    controls.update();
     requestAnimationFrame(animate);
     renderer.render(scene, cam);
     if (clicked === true) {
         time += 0.5;
         if (time < 126) {
-            dice_mesh.rotation.x += 0.1;
-            dice_mesh.rotation.y += 0.1;
+            die_mesh.rotation.x += 0.25;
+            die_mesh.rotation.y += 0.25;
         } else {
             time = 0;
             clicked = false;
