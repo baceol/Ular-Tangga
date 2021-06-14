@@ -18,7 +18,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/texture" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -38,6 +38,8 @@
       <workItem from="1622787837423" duration="34000" />
       <workItem from="1622887316311" duration="3052000" />
       <workItem from="1622901468614" duration="741000" />
+      <workItem from="1623299460762" duration="77000" />
+      <workItem from="1623688276372" duration="497000" />
     </task>
     <servers />
   </component>
@@ -45,9 +47,9 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1622787888715">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1623299539050">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1622787888715" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1623299539050" />
   </component>
 </project>
