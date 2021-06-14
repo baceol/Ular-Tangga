@@ -12,57 +12,57 @@ const gimel = new THREE.TextureLoader().load('texture/three.jpeg');
 const dalet = new THREE.TextureLoader().load('texture/four.jpeg');
 const he = new THREE.TextureLoader().load('texture/five.jpeg');
 const vav = new THREE.TextureLoader().load('texture/six.jpeg');
-const die_material1 = [
+const die_material = [[
     new THREE.MeshBasicMaterial({map: dalet}), //right
     new THREE.MeshBasicMaterial({map: gimel}), //left
     new THREE.MeshBasicMaterial({map: he}), //top
     new THREE.MeshBasicMaterial({map: bet}), //bottom
     new THREE.MeshBasicMaterial({map: alef}), //front
     new THREE.MeshBasicMaterial({map: vav}) //back
-];
-const die_material2 = [
+],
+[
     new THREE.MeshBasicMaterial({map: dalet}), //right
     new THREE.MeshBasicMaterial({map: gimel}), //left
     new THREE.MeshBasicMaterial({map: alef}), //top
     new THREE.MeshBasicMaterial({map: vav}), //bottom
     new THREE.MeshBasicMaterial({map: bet}), //front
     new THREE.MeshBasicMaterial({map: he}) //back
-];
-const die_material3 = [
+],
+[
     new THREE.MeshBasicMaterial({map: bet}), //right
     new THREE.MeshBasicMaterial({map: he}), //left
     new THREE.MeshBasicMaterial({map: alef}), //top
     new THREE.MeshBasicMaterial({map: vav}), //bottom
     new THREE.MeshBasicMaterial({map: gimel}), //front
     new THREE.MeshBasicMaterial({map: dalet}) //back
-];
-const die_material4 = [
+],
+[
     new THREE.MeshBasicMaterial({map: he}), //right
     new THREE.MeshBasicMaterial({map: bet}), //left
     new THREE.MeshBasicMaterial({map: alef}), //top
     new THREE.MeshBasicMaterial({map: vav}), //bottom
     new THREE.MeshBasicMaterial({map: dalet}), //front
     new THREE.MeshBasicMaterial({map: gimel}) //back
-];
-const die_material5 = [
+],
+[
     new THREE.MeshBasicMaterial({map: gimel}), //right
     new THREE.MeshBasicMaterial({map: dalet}), //left
     new THREE.MeshBasicMaterial({map: alef}), //top
     new THREE.MeshBasicMaterial({map: vav}), //bottom
     new THREE.MeshBasicMaterial({map: he}), //front
     new THREE.MeshBasicMaterial({map: bet}) //back
-];
-const die_material6 = [
+],
+[
     new THREE.MeshBasicMaterial({map: gimel}), //right
     new THREE.MeshBasicMaterial({map: dalet}), //left
     new THREE.MeshBasicMaterial({map: he}), //top
     new THREE.MeshBasicMaterial({map: bet}), //bottom
     new THREE.MeshBasicMaterial({map: vav}), //front
     new THREE.MeshBasicMaterial({map: alef}) //back
-];
+]];
 
 const die_geometry = new THREE.BoxGeometry(1, 1, 1);
-let die_mesh = new THREE.Mesh(die_geometry, die_material1);
+let die_mesh = new THREE.Mesh(die_geometry, die_material[0]);
 die_mesh.position.set(0, 1, 0);
 scene.add(die_mesh);
 
@@ -89,22 +89,22 @@ document.querySelector('#button').addEventListener('click', function () {
        if (child instanceof THREE.Mesh) {
            switch (number) {
                case 1 :
-                   child.material = die_material1;
+                   child.material = die_material[0];
                    break;
                case 2 :
-                   child.material = die_material2;
+                   child.material = die_material[1];
                    break;
                case 3 :
-                   child.material = die_material3;
+                   child.material = die_material[2];
                    break;
                case 4 :
-                   child.material = die_material4;
+                   child.material = die_material[3];
                    break;
                case 5 :
-                   child.material = die_material5;
+                   child.material = die_material[4];
                    break;
                case 6 :
-                   child.material = die_material6;
+                   child.material = die_material[5];
                    break;
            }
        }
@@ -124,6 +124,7 @@ function animate() {
         } else {
             time = 0;
             clicked = false;
+            die_mesh.rotation.set(0.0, 0.0, 0.0)
         }
     }
 }
