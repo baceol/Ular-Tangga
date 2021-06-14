@@ -4,7 +4,23 @@ let renderer = new THREE.WebGLRenderer();
 let time = 0;
 let clicked = false;
 
-cam.position.z = 5;
+cam.position.z = 15;
+
+let vertices = new Float32Array([
+    -1.0, -1.0, 0.0,
+    1.0, -1.0, 0.0,
+    1.0, 1.0, 0.0,
+
+    1.0, 1.0, 0.0,
+    -1.0, 1.0, 0.0,
+    -1.0, -1.0, 0.0
+]);
+const sq1 =  new THREE.BufferGeometry();
+sq1.setAttribute('position', new THREE.BufferAttribute(vertices,3));
+const mat1 = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
+let mesh1 = new THREE.Mesh(sq1, mat1);
+mesh1.position.set(0,0,0);
+scene.add(mesh1);
 
 const alef = new THREE.TextureLoader().load('texture/one.jpeg');
 const bet = new THREE.TextureLoader().load('texture/two.jpeg');
