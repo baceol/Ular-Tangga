@@ -3,35 +3,13 @@ let cam = new THREE.PerspectiveCamera(45, window.innerWidth/innerHeight, 1, 100)
 let renderer = new THREE.WebGLRenderer();
 let time = 0;
 let clicked = false;
+let change = [
+    [6, 12, 18, 24, 30], //up
+    [7, 19, 31], //left
+    [0, 13, 25] //right
+];
 
 cam.position.z = 25;
-
-let vertices = new Float32Array([
-    -10.0, -10.0, 0.0,
-    10.0, -10.0, 0.0,
-    10.0, 10.0, 0.0,
-
-    10.0, 10.0, 0.0,
-    -10.0, 10.0, 0.0,
-    -10.0, -10.0, 0.0
-]);
-let uv = new Float32Array([
-    0.0, 0.0, 
-    1.0, 0.0, 
-    1.0, 1.0, 
-
-    1.0, 1.0, 
-    0.0, 1.0, 
-    0.0, 0.0
-]);
-const papan = new THREE.TextureLoader().load('./texture/sal.png');
-const sq1 =  new THREE.BufferGeometry();
-sq1.setAttribute('position', new THREE.BufferAttribute(vertices,3));
-sq1.setAttribute('uv',new THREE.BufferAttribute(uv,2));
-const mat1 = new THREE.MeshBasicMaterial({map: papan});
-let mesh1 = new THREE.Mesh(sq1, mat1);
-mesh1.position.set(0,0,0);
-scene.add(mesh1);
 
 const alef = new THREE.TextureLoader().load('texture/one.jpeg');
 const bet = new THREE.TextureLoader().load('texture/two.jpeg');
@@ -39,6 +17,7 @@ const gimel = new THREE.TextureLoader().load('texture/three.jpeg');
 const dalet = new THREE.TextureLoader().load('texture/four.jpeg');
 const he = new THREE.TextureLoader().load('texture/five.jpeg');
 const vav = new THREE.TextureLoader().load('texture/six.jpeg');
+const papan = new THREE.TextureLoader().load('texture/sal.png');
 const die_material = [[
     new THREE.MeshBasicMaterial({map: dalet}), //right
     new THREE.MeshBasicMaterial({map: gimel}), //left
@@ -90,8 +69,20 @@ const die_material = [[
 
 const die_geometry = new THREE.BoxGeometry(1, 1, 1);
 let die_mesh = new THREE.Mesh(die_geometry, die_material[0]);
-die_mesh.position.set(0, 1, 0);
+die_mesh.position.set(0, 3, 0);
 scene.add(die_mesh);
+
+const player_geometry =  new THREE.BoxGeometry(1, 2, 1);
+const player_material = new THREE.MeshBasicMaterial({color: 0xff0000});
+let player = new pawn(player_geometry, player_material);
+player.mesh.position.set(-5.75, 1.0, 4.1875);
+scene.add(player.mesh);
+
+const sq1 =  new THREE.PlaneGeometry(10, 10, 30, 30);
+const mat1 = new THREE.MeshBasicMaterial({map: papan});
+let mesh1 = new THREE.Mesh(sq1, mat1);
+mesh1.rotateX(-Math.PI / 2);
+scene.add(mesh1);
 
 let light1 = new THREE.SpotLight(0xffffff, 1);
 light1.position.set(0, 3, 2);
@@ -111,6 +102,7 @@ window.addEventListener('resize', function() {
 
 document.querySelector('#button').addEventListener('click', function () {
     const number = Math.floor(Math.random() * 5) + 1;
+    player.move = number;
     clicked = true;
     die_mesh.traverse(function (child) {
        if (child instanceof THREE.Mesh) {
@@ -139,6 +131,30 @@ document.querySelector('#button').addEventListener('click', function () {
     });
 });
 
+function move(player) {
+    if (change[0].includes(player.position)) {
+        player.direction = "up";
+    } else if (change[1].includes(player.position)) {
+        player.direction = "left";
+    } else if (change[2].includes(player.position)) {
+        player.direction = "right";
+    }
+
+    player.position += 1;
+
+    switch (player.direction) {
+        case "up" :
+            player.mesh.position.set(player.mesh.position.x, player.mesh.position.y, player.mesh.position.z - 1.625);
+            break;
+        case "left" :
+            player.mesh.position.set(player.mesh.position.x - 1.625 , player.mesh.position.y, player.mesh.position.z);
+            break;
+        case "right" :
+            player.mesh.position.set(player.mesh.position.x + 1.625 , player.mesh.position.y, player.mesh.position.z);
+            break;
+    }
+}
+
 function animate() {
     controls.update();
     requestAnimationFrame(animate);
@@ -151,7 +167,11 @@ function animate() {
         } else {
             time = 0;
             clicked = false;
-            die_mesh.rotation.set(0.0, 0.0, 0.0)
+            die_mesh.rotation.set(0.0, 0.0, 0.0);
+            for (let i = 1; i <= player.move; i++) {
+                move(player);
+            }
+            player.move = 0;
         }
     }
 }
