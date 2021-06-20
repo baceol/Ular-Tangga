@@ -10,6 +10,7 @@ let change = [
 ];
 
 cam.position.z = 25;
+cam.position.y = 15;
 
 const alef = new THREE.TextureLoader().load('texture/one.jpeg');
 const bet = new THREE.TextureLoader().load('texture/two.jpeg');
@@ -69,7 +70,7 @@ const die_material = [[
 
 const die_geometry = new THREE.BoxGeometry(1, 1, 1);
 let die_mesh = new THREE.Mesh(die_geometry, die_material[0]);
-die_mesh.position.set(0, 3, 0);
+die_mesh.position.set(0, 3, -7);
 scene.add(die_mesh);
 
 const player_geometry =  new THREE.BoxGeometry(1, 2, 1);
