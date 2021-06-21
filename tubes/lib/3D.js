@@ -622,6 +622,18 @@ let loadervirus_31 = new THREE.GLTFLoader().load("model/virus.gltf", function(gl
 	gltf.asset;
 });
 
+let loadertable = new THREE.GLTFLoader().load("model/table.gltf", function(gltf) {
+    scene.add(gltf.scene);
+    gltf.scene.position.set(0, -20.5, -1);
+    gltf.scene.scale.set(30,30,30);
+    
+    gltf.animations;
+    gltf.scene;
+    gltf.scenes;
+    gltf.cameras;
+    gltf.asset;
+});
+
 const sq1 =  new THREE.PlaneGeometry(10, 10, 30, 30);
 const mat1 = new THREE.MeshBasicMaterial({map: papan});
 let mesh1 = new THREE.Mesh(sq1, mat1);
