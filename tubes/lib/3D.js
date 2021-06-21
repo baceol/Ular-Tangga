@@ -73,12 +73,12 @@ let die_mesh = new THREE.Mesh(die_geometry, die_material[0]);
 die_mesh.position.set(0, 3, -7);
 scene.add(die_mesh);
 
-let model;
-let loader = new THREE.GLTFLoader().load("/tubes/model/doc.gltf", function(gltf) {
-	model = gltf.scene;
-	scene.add(model);
-	model.position.set(-5.75, 1.0, 4.1875);
-    model.scale.set(0.03,0.03,0.03);
+let player;
+let loader = new THREE.GLTFLoader().load("model/doc.gltf", function(gltf) {
+    player = new pawn(gltf.scene);
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-5.75, 1.0, 4.1875);
+    gltf.scene.scale.set(0.03,0.03,0.03);
 	
 	gltf.animations;
 	gltf.scene;
@@ -86,7 +86,6 @@ let loader = new THREE.GLTFLoader().load("/tubes/model/doc.gltf", function(gltf)
 	gltf.cameras;
 	gltf.asset;
 });
-let player = new pawn(model);
 
 const sq1 =  new THREE.PlaneGeometry(10, 10, 30, 30);
 const mat1 = new THREE.MeshBasicMaterial({map: papan});
@@ -154,13 +153,19 @@ function move(player) {
 
     switch (player.direction) {
         case "up" :
-            player.model.position.set(player.model.position.x, player.model.position.y, player.model.position.z - 1.625);
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x, player.model.position.y, player.model.position.z - 1.625);
+            });
             break;
         case "left" :
-            player.model.position.set(player.model.position.x - 1.625 , player.model.position.y, player.model.position.z);
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x - 1.625 , player.model.position.y, player.model.position.z);
+            });
             break;
         case "right" :
-            player.model.position.set(player.model.position.x + 1.625 , player.model.position.y, player.model.position.z);
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x + 1.625 , player.model.position.y, player.model.position.z);
+            });
             break;
     }
 }
