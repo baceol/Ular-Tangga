@@ -72,11 +72,19 @@ let die_mesh = new THREE.Mesh(die_geometry, die_material[0]);
 die_mesh.position.set(0, 3, 0);
 scene.add(die_mesh);
 
-const player_geometry =  new THREE.BoxGeometry(1, 2, 1);
-const player_material = new THREE.MeshBasicMaterial({color: 0xff0000});
-let player = new pawn(player_geometry, player_material);
-player.mesh.position.set(-5.75, 1.0, 4.1875);
-scene.add(player.mesh);
+let model;
+let loader = new THREE.GLTFLoader().load("", function(gltf) {
+	model = gltf.scene;
+	scene.add(model);
+	model.position.set(-5.75, 1.0, 4.1875);
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let player = new pawn(model);
 
 const sq1 =  new THREE.PlaneGeometry(10, 10, 30, 30);
 const mat1 = new THREE.MeshBasicMaterial({map: papan});
@@ -144,13 +152,13 @@ function move(player) {
 
     switch (player.direction) {
         case "up" :
-            player.mesh.position.set(player.mesh.position.x, player.mesh.position.y, player.mesh.position.z - 1.625);
+            player.model.position.set(player.model.position.x, player.model.position.y, player.model.position.z - 1.625);
             break;
         case "left" :
-            player.mesh.position.set(player.mesh.position.x - 1.625 , player.mesh.position.y, player.mesh.position.z);
+            player.model.position.set(player.model.position.x - 1.625 , player.model.position.y, player.model.position.z);
             break;
         case "right" :
-            player.mesh.position.set(player.mesh.position.x + 1.625 , player.mesh.position.y, player.mesh.position.z);
+            player.model.position.set(player.model.position.x + 1.625 , player.model.position.y, player.model.position.z);
             break;
     }
 }

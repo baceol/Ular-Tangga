@@ -1,8 +1,8 @@
 class pawn {
-    constructor(geometry, material) {
+    constructor(model) {
         this.position = 0;
         this.direction = "";
         this.move = 0;
-        this.mesh = new THREE.Mesh(geometry, material);
+        this.model = model;
     }
 }
