@@ -10,6 +10,7 @@ let change = [
 ];
 
 cam.position.z = 25;
+cam.position.y = 15;
 
 const alef = new THREE.TextureLoader().load('texture/one.jpeg');
 const bet = new THREE.TextureLoader().load('texture/two.jpeg');
@@ -17,7 +18,7 @@ const gimel = new THREE.TextureLoader().load('texture/three.jpeg');
 const dalet = new THREE.TextureLoader().load('texture/four.jpeg');
 const he = new THREE.TextureLoader().load('texture/five.jpeg');
 const vav = new THREE.TextureLoader().load('texture/six.jpeg');
-const papan = new THREE.TextureLoader().load('texture/sal.png');
+const papan = new THREE.TextureLoader().load('texture/papan.png');
 const die_material = [[
     new THREE.MeshBasicMaterial({map: dalet}), //right
     new THREE.MeshBasicMaterial({map: gimel}), //left
@@ -69,7 +70,7 @@ const die_material = [[
 
 const die_geometry = new THREE.BoxGeometry(1, 1, 1);
 let die_mesh = new THREE.Mesh(die_geometry, die_material[0]);
-die_mesh.position.set(0, 3, 0);
+die_mesh.position.set(0, 3, -7);
 scene.add(die_mesh);
 
 let model;
