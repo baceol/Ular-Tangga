@@ -18,7 +18,7 @@ const gimel = new THREE.TextureLoader().load('texture/three.jpeg');
 const dalet = new THREE.TextureLoader().load('texture/four.jpeg');
 const he = new THREE.TextureLoader().load('texture/five.jpeg');
 const vav = new THREE.TextureLoader().load('texture/six.jpeg');
-const papan = new THREE.TextureLoader().load('texture/sal.png');
+const papan = new THREE.TextureLoader().load('texture/papan.png');
 const die_material = [[
     new THREE.MeshBasicMaterial({map: dalet}), //right
     new THREE.MeshBasicMaterial({map: gimel}), //left
