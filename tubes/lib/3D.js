@@ -77,8 +77,23 @@ let player;
 let loader = new THREE.GLTFLoader().load("model/doc.gltf", function(gltf) {
     player = new pawn(gltf.scene);
 	scene.add(gltf.scene);
-    gltf.scene.position.set(-5.75, 1.0, 4.1875);
+    gltf.scene.position.set(-5.75, 0.1, 4.1875);
     gltf.scene.scale.set(0.03,0.03,0.03);
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+let syringe1;
+let loadersyringe1 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+    syringe1 = new pawn(gltf.scene);
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1.35, 0.1, 2.7);
+    gltf.scene.scale.set(2,0.65,0.4);
+    gltf.scene.rotation.set(0,5.5,0);
 	
 	gltf.animations;
 	gltf.scene;
@@ -100,6 +115,14 @@ scene.add(light1);
 let light2 = new THREE.SpotLight(0xffffff, 1);
 light2.position.set(0, -3, 2);
 scene.add(light2);
+
+let light3 = new THREE.SpotLight(0xffffff, 1);
+light3.position.set(-6, 3, 6);
+scene.add(light3);
+
+let light4 = new THREE.SpotLight(0xffffff, 1);
+light4.position.set(-5, 3, 3);
+scene.add(light4);
 
 let controls = new THREE.OrbitControls(cam, renderer.domElement);
 
@@ -159,12 +182,12 @@ function move(player) {
             break;
         case "left" :
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.625 , player.model.position.y, player.model.position.z);
+                gltf.position.set(player.model.position.x - 1.470 , player.model.position.y, player.model.position.z);
             });
             break;
         case "right" :
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.625 , player.model.position.y, player.model.position.z);
+                gltf.position.set(player.model.position.x + 1.470 , player.model.position.y, player.model.position.z);
             });
             break;
     }
