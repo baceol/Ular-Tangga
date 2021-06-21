@@ -4,9 +4,13 @@ let renderer = new THREE.WebGLRenderer();
 let time = 0;
 let clicked = false;
 let change = [
-    [6, 12, 18, 24, 30], //up
-    [7, 19, 31], //left
-    [0, 13, 25] //right
+    [8, 16, 24, 32, 40, 48, 56], //up
+    [9, 25, 41, 57], //left
+    [0, 17, 33, 49], //right
+    [19, 59], //snake(stay)
+    [27, 48, 63], //snake(change)
+    [25, 37, 41], //ladder(stay)
+    [16, 51] //ladder(change)
 ];
 
 cam.position.z = 25;
@@ -679,6 +683,60 @@ document.querySelector('#button').addEventListener('click', function () {
     });
 });
 
+function snakeLadder(player) {
+    if (change[3].includes(player.position)) {
+        if (player.position === 19) {
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z + 3.25);
+            });
+        } else {
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x - 1.47, player.model.position.y, player.model.position.z + 3.25);
+            });
+        }
+    } else if (change[4].includes(player.position)) {
+        player.direction = "right"
+        if (player.position === 27) {
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z + 1.625);
+            });
+        } else if (player.position === 48){
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z + 1.625);
+            });
+        } else {
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x + 4.41, player.model.position.y, player.model.position.z + 8.125);
+            });
+        }
+    } else if (change[5].includes(player.position)) {
+        if (player.position === 25) {
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x - 1.47, player.model.position.y, player.model.position.z - 3.25);
+            });
+        } else if (player.position === 37){
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x - 1.47, player.model.position.y, player.model.position.z - 3.25);
+            });
+        } else {
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x - 1.47, player.model.position.y, player.model.position.z - 3.25);
+            });
+        }
+    } else if (change[6].includes(player.position)) {
+        player.direction = "left";
+        if (player.position === 16) {
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z - 3.25);
+            });
+        } else {
+            player.model.traverse(function (gltf) {
+                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z - 1.625);
+            });
+        }
+    }
+}
+
 function move(player) {
     if (change[0].includes(player.position)) {
         player.direction = "up";
@@ -725,6 +783,7 @@ function animate() {
             for (let i = 1; i <= player.move; i++) {
                 move(player);
             }
+            snakeLadder(player);
             player.move = 0;
         }
     }
