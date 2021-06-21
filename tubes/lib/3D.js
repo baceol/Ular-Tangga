@@ -87,13 +87,529 @@ let loader = new THREE.GLTFLoader().load("model/doc.gltf", function(gltf) {
 	gltf.asset;
 });
 
-let syringe1;
-let loadersyringe1 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
-    syringe1 = new pawn(gltf.scene);
+//Syringes
+//16 31
+let loadersyringe_1 = new THREE.GLTFLoader().load("model/syringe.gltf", function(gltf) {
 	scene.add(gltf.scene);
-    gltf.scene.position.set(-1.35, 0.1, 2.7);
-    gltf.scene.scale.set(2,0.65,0.4);
-    gltf.scene.rotation.set(0,5.5,0);
+    gltf.scene.position.set(-2.8, -2.6, 1.5);
+    gltf.scene.scale.set(0.5, 2, 1);
+    gltf.scene.rotation.set(0, -1.9, 0);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x86FF62});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//25 42
+let loadersyringe_2 = new THREE.GLTFLoader().load("model/syringe.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(4, -2.6, -1.6);
+    gltf.scene.scale.set(0.5, 2, 1);
+    gltf.scene.rotation.set(0, -1.1, 0);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x86FF62});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//37 52
+let loadersyringe_3 = new THREE.GLTFLoader().load("model/syringe.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(0.2, -2.6, -2.8);
+    gltf.scene.scale.set(0.5, 2, 1);
+    gltf.scene.rotation.set(0, -1.1, 0);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x86FF62});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//41 58
+let loadersyringe_4 = new THREE.GLTFLoader().load("model/syringe.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(4, -2.6, -4.1);
+    gltf.scene.scale.set(0.5, 2, 1);
+    gltf.scene.rotation.set(0, -1.1, 0);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x86FF62});
+    });
+
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//51 61
+let loadersyringe_5 = new THREE.GLTFLoader().load("model/syringe.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-0.4, -2.6, -3.6);
+    gltf.scene.scale.set(0.3, 2, 1);
+    gltf.scene.rotation.set(0, -2.1, 0);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x86FF62});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//Viruses
+//19 4
+let loadervirus_1 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1.6, 0.1, 2.3);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xC931F9});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_2 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1.4, 0.1, 2.7);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x111166});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_3 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1.2, 0.1, 3.1);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xFDBB23});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_4 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1, 0.1, 3.5);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xE20D0D});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_5 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-0.8, 0.1, 3.9);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x10D61C});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//27 23
+let loadervirus_6 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(2.1, 0.1, 1);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xC931F9});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_7 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(2.4, 0.1, 1.3);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x093373});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_8 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(2.7, 0.1, 1.6);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x10D61C});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//48 34
+let loadervirus_9 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-4, 0.1, -1.5);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xC931F9});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_10 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-3.7, 0.1, -1.2);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x116661});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_11 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-3.3, 0.1, -1.0);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x10D61C});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//59 44
+let loadervirus_12 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(1.5, 0.1, -4);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xC931F9});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_13 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(1.3, 0.1, -3.6);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xFDBB23});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_14 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(1.1, 0.1, -3.2);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xE20D0D});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_15 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(0.9, 0.1, -2.8);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x111166});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_16 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(0.7, 0.1, -2.4);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x10D61C});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+
+//63 21
+let loadervirus_17 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-2.7, 0.1, -4);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xC931F9});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_18 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-2.45, 0.1, -3.6);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x116661});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_19 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-2.20, 0.1, -3.2);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xE20D0D});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_20 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1.95, 0.1, -2.8);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xFDBB23});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_21 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1.70, 0.1, -2.4);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x111166});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_22 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1.45, 0.1, -2);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xFDBB23});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_23 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-1.20, 0.1, -1.6);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x111166});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_24 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-0.95, 0.1, -1.2);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x116661});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_25 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-0.70, 0.1, -0.8);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xE20D0D});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_26 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-0.45, 0.1, -0.4);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xFDBB23});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_27 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(-0.20, 0.1, 0);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x111166});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_28 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(0.05, 0.1, 0.4);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xE20D0D});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_29 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(0.30, 0.1, 0.8);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0xFDBB23});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_30 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(0.55, 0.1, 1.2);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x116661});
+    });
+	
+	gltf.animations;
+	gltf.scene;
+	gltf.scenes;
+	gltf.cameras;
+	gltf.asset;
+});
+let loadervirus_31 = new THREE.GLTFLoader().load("model/virus.gltf", function(gltf) {
+	scene.add(gltf.scene);
+    gltf.scene.position.set(0.80, 0.1, 1.6);
+    gltf.scene.scale.set(0.2,0.2,0.2);
+    gltf.scene.traverse(function (object) {
+        object.material = new THREE.MeshStandardMaterial({color : 0x10D61C});
+    });
 	
 	gltf.animations;
 	gltf.scene;
