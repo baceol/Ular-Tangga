@@ -74,10 +74,11 @@ die_mesh.position.set(0, 3, -7);
 scene.add(die_mesh);
 
 let model;
-let loader = new THREE.GLTFLoader().load("", function(gltf) {
+let loader = new THREE.GLTFLoader().load("/tubes/model/doc.gltf", function(gltf) {
 	model = gltf.scene;
 	scene.add(model);
 	model.position.set(-5.75, 1.0, 4.1875);
+    model.scale.set(0.03,0.03,0.03);
 	
 	gltf.animations;
 	gltf.scene;
