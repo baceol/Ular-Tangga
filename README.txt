@@ -1,4 +1,6 @@
 Source model:
+https://www.youtube.com/watch?v=RtDwr_mdHLs&list=PL5gLq0nzeozvgdrykl2tI8SZBRiYoe54Q&index=1
+
 https://www.cgtrader.com/items/2540447/download-page
 
 https://threejs.org/docs/#examples/en/loaders/GLTFLoader
