@@ -727,12 +727,12 @@ function snakeLadder(player) {
         if (player.position === 19) {
             player.position = 4;
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 3.25);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 1.80);
             });
         } else {
             player.model.traverse(function (gltf) {
                 player.position = 44;
-                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z + 3.25);
+                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z + 2);
             });
         }
     } else if (change[4].includes(player.position)) {
@@ -740,34 +740,34 @@ function snakeLadder(player) {
         if (player.position === 27) {
             player.position = 23;
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 1.625);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 1.80);
             });
         } else if (player.position === 48){
             player.position = 34
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 1.625);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 1.80);
             });
         } else {
             player.model.traverse(function (gltf) {
                 player.position = 21
-                gltf.position.set(player.model.position.x + 3.0, player.model.position.y, player.model.position.z + 8.125);
+                gltf.position.set(player.model.position.x + 3.0, player.model.position.y, player.model.position.z + 9);
             });
         }
     } else if (change[5].includes(player.position)) {
         if (player.position === 25) {
             player.position = 42
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 3.25);
+                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 2.50);
             });
         } else if (player.position === 37){
             player.position = 52
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 3.25);
+                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 2.50);
             });
         } else {
             player.position = 58
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 3.25);
+                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 2.50);
             });
         }
     } else if (change[6].includes(player.position)) {
@@ -775,12 +775,12 @@ function snakeLadder(player) {
         if (player.position === 16) {
             player.model.traverse(function (gltf) {
                 player.position = 31
-                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z - 3.25);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z - 2.50);
             });
         } else {
             player.position = 61
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z - 1.625);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z - 2.50);
             });
         }
     }
@@ -800,7 +800,7 @@ function move(player) {
     switch (player.direction) {
         case "up" :
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x, player.model.position.y, player.model.position.z - 1.500);
+                gltf.position.set(player.model.position.x, player.model.position.y, player.model.position.z - 1.2);
             });
             break;
         case "left" :
