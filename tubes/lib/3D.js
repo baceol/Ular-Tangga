@@ -1,6 +1,7 @@
 let scene = new THREE.Scene();
 let cam = new THREE.PerspectiveCamera(45, window.innerWidth/innerHeight, 1, 100);
 let renderer = new THREE.WebGLRenderer();
+scene.background = new THREE.Color( 0x4FC4A6 );
 let time = 0;
 let clicked = false;
 let change = [
@@ -23,6 +24,19 @@ const dalet = new THREE.TextureLoader().load('texture/four.jpeg');
 const he = new THREE.TextureLoader().load('texture/five.jpeg');
 const vav = new THREE.TextureLoader().load('texture/six.jpeg');
 const papan = new THREE.TextureLoader().load('texture/papan.png');
+const lantai = new THREE.TextureLoader().load('texture/floor.png');
+
+let listener = new THREE.AudioListener();
+cam.add(listener);
+const bgm = new THREE.Audio(listener);
+let loaderbgm = new THREE.AudioLoader().load('audio/bgm.ogg',
+(result)=>{
+    bgm.setBuffer(result);
+    bgm.play();
+    bgm.setLoop(true);
+    bgm.setVolume(0.2);
+});
+
 const die_material = [[
     new THREE.MeshBasicMaterial({map: dalet}), //right
     new THREE.MeshBasicMaterial({map: gimel}), //left
@@ -639,6 +653,13 @@ const mat1 = new THREE.MeshBasicMaterial({map: papan});
 let mesh1 = new THREE.Mesh(sq1, mat1);
 mesh1.rotateX(-Math.PI / 2);
 scene.add(mesh1);
+
+const sq2 =  new THREE.PlaneGeometry(100, 100, 300, 300);
+const mat2 = new THREE.MeshBasicMaterial({map: lantai});
+let mesh2 = new THREE.Mesh(sq2, mat2);
+mesh2.rotateX(-Math.PI / 2);
+mesh2.position.set(0, -20.5, 0);
+scene.add(mesh2);
 
 let light1 = new THREE.SpotLight(0xffffff, 1);
 light1.position.set(0, 3, 2);
