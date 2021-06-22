@@ -725,52 +725,62 @@ document.querySelector('#button').addEventListener('click', function () {
 function snakeLadder(player) {
     if (change[3].includes(player.position)) {
         if (player.position === 19) {
+            player.position = 4;
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z + 3.25);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 3.25);
             });
         } else {
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.47, player.model.position.y, player.model.position.z + 3.25);
+                player.position = 44;
+                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z + 3.25);
             });
         }
     } else if (change[4].includes(player.position)) {
         player.direction = "right"
         if (player.position === 27) {
+            player.position = 23;
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z + 1.625);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 1.625);
             });
         } else if (player.position === 48){
+            player.position = 34
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z + 1.625);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z + 1.625);
             });
         } else {
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 4.41, player.model.position.y, player.model.position.z + 8.125);
+                player.position = 21
+                gltf.position.set(player.model.position.x + 3.0, player.model.position.y, player.model.position.z + 8.125);
             });
         }
     } else if (change[5].includes(player.position)) {
         if (player.position === 25) {
+            player.position = 42
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.47, player.model.position.y, player.model.position.z - 3.25);
+                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 3.25);
             });
         } else if (player.position === 37){
+            player.position = 52
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.47, player.model.position.y, player.model.position.z - 3.25);
+                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 3.25);
             });
         } else {
+            player.position = 58
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.47, player.model.position.y, player.model.position.z - 3.25);
+                gltf.position.set(player.model.position.x - 1.25, player.model.position.y, player.model.position.z - 3.25);
             });
         }
     } else if (change[6].includes(player.position)) {
         player.direction = "left";
         if (player.position === 16) {
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z - 3.25);
+                player.position = 31
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z - 3.25);
             });
         } else {
+            player.position = 61
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.47, player.model.position.y, player.model.position.z - 1.625);
+                gltf.position.set(player.model.position.x + 1.25, player.model.position.y, player.model.position.z - 1.625);
             });
         }
     }
@@ -790,17 +800,17 @@ function move(player) {
     switch (player.direction) {
         case "up" :
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x, player.model.position.y, player.model.position.z - 1.625);
+                gltf.position.set(player.model.position.x, player.model.position.y, player.model.position.z - 1.500);
             });
             break;
         case "left" :
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x - 1.470 , player.model.position.y, player.model.position.z);
+                gltf.position.set(player.model.position.x - 1.25 , player.model.position.y, player.model.position.z);
             });
             break;
         case "right" :
             player.model.traverse(function (gltf) {
-                gltf.position.set(player.model.position.x + 1.470 , player.model.position.y, player.model.position.z);
+                gltf.position.set(player.model.position.x + 1.25 , player.model.position.y, player.model.position.z);
             });
             break;
     }
