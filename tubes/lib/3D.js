@@ -689,6 +689,12 @@ document.querySelector('#button').addEventListener('click', function () {
     const number = Math.floor(Math.random() * 5) + 1;
     player.move = number;
     clicked = true;
+    // let loaderbgm1 = new THREE.AudioLoader().load('audio/bgm.ogg',
+    // (result)=>{
+    //     bgm.setBuffer(result);
+    //     bgm.play();
+    //     bgm.setVolume(0.2);
+    // });
     die_mesh.traverse(function (child) {
        if (child instanceof THREE.Mesh) {
            switch (number) {
